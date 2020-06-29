@@ -21,7 +21,6 @@
 <script>
 import firebase from "firebase"; // firebaseのインポート
 
-  /* eslint-disable */
 export default {
   name: "Signin",
   data() {
@@ -36,17 +35,18 @@ export default {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
-        .then(user => {
+        .then(user =>{
           // ログインが成功した場合にメインページに遷移させる
           alert("success : " + user.user.email);
           this.$router.push("/");
         })
-        .catch(error => {
+        .catch(error =>{
           // ログインに失敗した場合
           alert(error.message);
         });
     },
     // googleでサインインするときに呼ばれるfunction
+    /* eslint-disable */
     signInWithGoogle: function() {
       const provider = new firebase.auth.GoogleAuthProvider();
       firebase
@@ -58,9 +58,9 @@ export default {
         .catch(error => {
           alert(error.message);
         });
-        /* eslint-disable */
+      /* eslint-enable */
     }
   }
 };
 </script>
- 
+
